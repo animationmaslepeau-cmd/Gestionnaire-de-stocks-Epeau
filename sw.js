@@ -15,7 +15,6 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        console.log('Service Worker: Caching app shell');
         return cache.addAll(STATIC_ASSETS);
       })
       .catch(error => {
@@ -32,7 +31,6 @@ self.addEventListener('activate', (event) => {
         cacheNames
           .filter(cacheName => cacheName !== CACHE_NAME)
           .map(cacheName => {
-            console.log('Service Worker: Deleting old cache', cacheName);
             return caches.delete(cacheName);
           })
       );
@@ -69,7 +67,6 @@ async function networkFirst(request) {
     }
     return networkResponse;
   } catch (error) {
-    console.log(`Fetch failed for ${request.url}; trying cache.`, error);
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
       return cachedResponse;
@@ -94,7 +91,6 @@ async function staleWhileRevalidate(request) {
       return networkResponse;
     })
     .catch(error => {
-      console.warn(`Fetch failed for ${request.url}. The user might be offline.`, error);
       // The fetch failed. If we have a cached response, it's already been returned.
       // If not, this error will cause the promise to reject, leading to a browser network error.
       throw error;

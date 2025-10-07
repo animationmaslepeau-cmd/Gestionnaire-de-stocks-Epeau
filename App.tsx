@@ -10,7 +10,8 @@ import { Toast, ToastProps } from './components/ui/Toast';
 type AppView = 'service-selection' | 'order-form' | 'manager-login' | 'manager-dashboard';
 
 type NotificationContextType = {
-  addNotification: (message: string, type: 'success' | 'error') => void;
+  // Fix: Add 'warning' to the notification types to support more notification contexts.
+  addNotification: (message: string, type: 'success' | 'error' | 'warning') => void;
 };
 
 const NotificationContext = createContext<NotificationContextType | null>(null);
@@ -31,7 +32,8 @@ const App: React.FC = () => {
   const [loginLoading, setLoginLoading] = useState(false);
   const [notifications, setNotifications] = useState<ToastProps[]>([]);
 
-  const addNotification = useCallback((message: string, type: 'success' | 'error') => {
+  // Fix: Add 'warning' to the notification types to support more notification contexts.
+  const addNotification = useCallback((message: string, type: 'success' | 'error' | 'warning') => {
     const id = Date.now();
     setNotifications(prev => [...prev, { id, message, type }]);
   }, []);

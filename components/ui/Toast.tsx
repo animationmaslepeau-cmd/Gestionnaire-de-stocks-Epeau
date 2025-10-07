@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { CheckCircleIcon, XCircleIcon } from './Icons';
+// Fix: Import AlertTriangleIcon to use for warning notifications.
+import { CheckCircleIcon, XCircleIcon, AlertTriangleIcon } from './Icons';
 
 export interface ToastProps {
   id?: number;
   message: string;
-  type: 'success' | 'error';
+  // Fix: Add 'warning' type to support warning notifications.
+  type: 'success' | 'error' | 'warning';
   onClose?: () => void;
 }
 
@@ -16,6 +18,11 @@ const toastConfig = {
   error: {
     icon: <XCircleIcon />,
     bgClass: 'bg-red-100 border-red-400 text-red-700',
+  },
+  // Fix: Add configuration for 'warning' toasts to support a new notification type.
+  warning: {
+    icon: <AlertTriangleIcon className="h-6 w-6 text-yellow-700" />,
+    bgClass: 'bg-yellow-100 border-yellow-400 text-yellow-700',
   },
 };
 
