@@ -1,0 +1,28 @@
+{
+  "name": "PWA Gestion de Stock",
+  "short_name": "Gestion Stock",
+  "description": "Une application de gestion de stock pour permettre aux différents services d'un établissement de passer des commandes et à un gestionnaire de les valider et de suivre les niveaux de stock.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007A5E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/maskable-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}

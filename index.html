@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion de Stock</title>
+
+    <!-- PWA Tags -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#007A5E">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Gestion Stock">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#007A5E',
+              'primary-focus': '#00634B',
+              'primary-content': '#ffffff',
+              secondary: '#E6E6E6',
+              'secondary-focus': '#D1D1D1',
+              accent: '#F2A900',
+              neutral: '#3d4451',
+              'base-100': '#ffffff',
+              info: '#2094f3',
+              success: '#009485',
+              warning: '#ff9900',
+              error: '#ff5724',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.2s ease-out',
+              'toast-in': 'toastIn 0.3s ease-out forwards',
+              'toast-out': 'toastOut 0.3s ease-in forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: 0, transform: 'scale(0.95)' },
+                '100%': { opacity: 1, transform: 'scale(1)' },
+              },
+              toastIn: {
+                '0%': { opacity: 0, transform: 'translateY(-20px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+              },
+              toastOut: {
+                '0%': { opacity: 1, transform: 'translateY(0)' },
+                '100%': { opacity: 0, transform: 'translateY(-20px)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      html {
+        color-scheme: light;
+      }
+      .details-marker-hidden > summary::-webkit-details-marker {
+        display: none;
+      }
+      .details-marker-hidden > summary {
+        list-style-type: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.74.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-100">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
